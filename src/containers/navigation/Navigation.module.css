@@ -1,0 +1,91 @@
+.container {
+}
+.categoriesNav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  animation: showAnim 1s linear;
+}
+.categoriesNav ul {
+  padding: 0px;
+  margin-top: 0px;
+  list-style: none;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 0;
+}
+.showMenuContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.expandIconContainer {
+  display: flex;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s;
+}
+.expandIconContainerS {
+  display: flex;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s;
+}
+.show {
+  display: flex;
+  opacity: 0;
+  animation: showAnim 0.5s forwards;
+}
+@keyframes showAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.expandIcon {
+  color: orange;
+  margin: 0;
+  background-color: rgba(15, 72, 105, 0.6);
+  border-radius: 50%;
+}
+.linkItem {
+  margin: 5px;
+}
+.linkItem a {
+  color: orange;
+  font-size: large;
+  text-decoration: none;
+}
+
+.linkItem a:hover,
+.linkItem a:active,
+.linkItem a.activeLink {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .categoriesNav {
+    display: flex;
+  }
+  .showMenuContainer {
+    display: none;
+  }
+  .categoriesNav ul {
+    flex-direction: row;
+  }
+
+  .linkItem a {
+    margin: 0px 5px;
+    color: orange;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,31 @@
+.itemContainer {
+  padding: 5px;
+  justify-content: center;
+  cursor: pointer;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-self: flex-start;
+}
+
+.item {
+  padding: 10px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(7, 44, 66, 0.6);
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+.item h4 {
+  color: orange;
+}
+.item img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}

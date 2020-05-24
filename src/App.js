@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Header from "./containers/header/Header";
+import { connect } from "react-redux";
+import Loading from "./UI/loading/Loading";
+import Body from "./containers/body/Body";
+import { Switch, Route } from "react-router-dom";
+import Categories from "./containers/body/categories/Categories";
+import { loadCategories } from "./store/Actions";
+import "./App.css";
+import image from "./background.jpg";
 
-function App() {
+function App(props) {
+  const { categories, loadCategories } = props;
+  useEffect(() => {
+    //console.log(props);
+    loadCategories(categories);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {props.loading ? (
+        <Loading />
+      ) : (
+        <React.Fragment>
+          <img className="backgroundImage" src={image} />
+          <Body>
+            <Switch>
+              {props.categories.map((item, index) => {
+                return (
+                  <Route
+                    key={item.id}
+                    path={item.link}
+                    render={(newProps) => (
+                      <Categories
+                        {...newProps}
+                        index={index}
+                        loaded={props.loaded}
+                      />
+                    )}
+                  />
+                );
+              })}
+            </Switch>
+          </Body>
+        </React.Fragment>
+      )}
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.loading,
+    categories: state.categories,
+    loaded: state.loadedCount === 4 ? true : false,
+  };
+};
+const mapActionsToProps = (despatch) => {
+  return {
+    loadCategories: (data) => despatch(loadCategories(data)),
+  };
+};
+export default connect(mapStateToProps, mapActionsToProps)(App);

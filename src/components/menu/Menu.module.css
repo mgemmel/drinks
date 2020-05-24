@@ -1,0 +1,46 @@
+.Menu {
+  position: absolute;
+  width: 50vw;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgba(7, 44, 66, 0.884);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s linear;
+}
+
+.Menu nav {
+  display: flex;
+}
+.menu {
+  padding: 5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.menuLink {
+  list-style: none;
+  text-align: left;
+  padding: 2px 0px;
+  font-size: large;
+  color: orange;
+  width: 90%;
+  text-align: center;
+  transition: all 0.3s linear;
+}
+.menuLink:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 5px;
+  background-color: rgba(58, 86, 102, 0.6);
+}
+
+@media (min-width: 600px) {
+  .Menu {
+    width: 20vw;
+    position: inherit;
+    display: flex;
+  }
+}

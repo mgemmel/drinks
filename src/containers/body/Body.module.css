@@ -1,0 +1,11 @@
+.alcoholBody {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+@media (min-width: 600px) {
+  .alcoholBody {
+    flex-direction: row;
+  }
+}
